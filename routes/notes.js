@@ -10,7 +10,7 @@ const errorMsg = [
 		//getAll error = 0
 		"id" : 0,
 		"code": 500,
-		"description" : "Cant read From JSONFile"
+		"description" : "Can't read From JSONFile"
 	},
 	{
 		//get Specific = 1
@@ -31,6 +31,7 @@ const errorMsg = [
 		"description" : "Could not find note to edit"
   }
 ];
+
 /* GET all Notes. */
 router.get('/', function(req, res, next) {
   fs.readFile(dataPath, (err,data) =>{
@@ -46,7 +47,6 @@ router.get('/', function(req, res, next) {
 
 //POST a new Note
 router.post('/', function(req, res, next) {
-
     //jag vill l�sa in hela "filen" och ta reda p� hur m�nga poster som finns
     //fundera p� JavaScript Object vs JSON som text, dvs vi har en Array med data
     //ta antalet poster och �ka med 1
@@ -76,8 +76,6 @@ router.post('/', function(req, res, next) {
     //INNAN något värde har populerats till notesdata
     //console.log(notesdata); //varför funkar inte detta????
     //res.status(200).send("new user added successfully");
-    
-    
   });
 
 /* GET  Note by id. */
@@ -137,8 +135,6 @@ router.delete('/:id', function(req, res, next) {
     for (var i = 0; i < NoteArray.length; i++) {
         NoteArray[i].id = i;
     }
-
-    
   })
   
   NoteArrayForDel.splice(id, 0);
@@ -153,5 +149,4 @@ router.delete('/:id', function(req, res, next) {
     }
   });
 });
-
 module.exports = router;
