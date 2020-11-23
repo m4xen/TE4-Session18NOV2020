@@ -8,9 +8,7 @@ route | method | Description | example
 /notes/id | put | update a note using thier id as identifier | note3 was succesfully changed
 /notes/id | delete | remove a specific note | note3 was succesfully removed
 
-<h3> Jag tycker att variablerna har ett bra namn för tillfället.
-eftersom dem förklara vad dem gör på en ganska hög(abstract) nivå.
-men ändå tillräckligt definerat för att vara konkret. </h3>
+Jag tycker att de flesta av variablana Ã¤r bra men det finns en eller tvÃ¥ som Ã¤r otydliga
 
 
 
