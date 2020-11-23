@@ -47,10 +47,10 @@ router.get('/', function(req, res, next) {
 
 //POST a new Note
 router.post('/', function(req, res, next) {
-    //jag vill l�sa in hela "filen" och ta reda p� hur m�nga poster som finns
-    //fundera p� JavaScript Object vs JSON som text, dvs vi har en Array med data
-    //ta antalet poster och �ka med 1
-    //detta tal blir mitt nya id
+    //jag vill läsa in hela "filen" och ta reda p� hur m�nga poster som finns
+    //fundera på JavaScript Object vs JSON som text, dvs vi har en Array med data
+    //öka antalet poster med 1
+    //Det blir nya id
         fs.readFile(dataPath, (err,data) =>{
             if(err) {
 		console.log(err);
@@ -70,12 +70,6 @@ router.post('/', function(req, res, next) {
                 }
               }); 
         });
-    //vi FÖRVÄNTAR oss att nu är notesdata populerat med data
-    //MEN s� �r inte fallet!!
-    //funktionen ovan fortsätter jobba och vi hamnar hör direkt
-    //INNAN något värde har populerats till notesdata
-    //console.log(notesdata); //varför funkar inte detta????
-    //res.status(200).send("new user added successfully");
   });
 
 /* GET  Note by id. */
@@ -116,37 +110,6 @@ router.put('/:id', function(req, res, next) {
         res.status(200).send("changed note[" + id + "]");
       }
     }); 
-  });
-});
-
-router.delete('/:id', function(req, res, next) {
-  var id = req.params.id;
-  var NoteArrayForDel;
-  fs.readFile(dataPath, (err,data) =>{
-    if(err) {
-        console.log(err);
-        throw err;
-    }
-    NoteArrayForDel = JSON.parse(data);
-    //NoteArrayForDel.splice(id, 0)
-    //must complete this before i can splice
-    //NoteArrayForDel.splice(id, 1);
-  //give everything a new id
-    for (var i = 0; i < NoteArray.length; i++) {
-        NoteArray[i].id = i;
-    }
-  })
-  
-  NoteArrayForDel.splice(id, 0);
-
-  fs.writeFile(dataPath, JSON.stringify(NoteArrayForDel), (err) => { 
-    if (err) { 
-      console.log(err);
-      res.status(500).send("Could not delete[" + id + "]" );
-    }
-    else {
-      res.status(200).send("removed note[" + id + "]");
-    }
   });
 });
 module.exports = router;
