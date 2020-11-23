@@ -1,0 +1,52 @@
+Ex Anteckningar
+Som användare vill ha skapa en ny anteckning
+Som användare vill jag se en lista över alla anteckningar
+Som användare vill jag hämta en specifik anteckning
+
+ROUTES      VERB    BESKRIVNING
+/notes      GET     Hämtar alla anteckningar
+/notes/id   GET     Hämtar anteckning med angivet id
+/notes/id   DELETE  Tar bort anteckning med angivet id
+/notes      POST    Skapar en ny anteckning
+/notes/id   PUT     Uppdaterar befintlig anteckning med angivet id
+
+Beskriv även vad som ska ske om något inte går bra.
+Errorhantering?
+Ex returnera data som säger "error" och en "beskrivning"
+Error skulle då kunna vara ett JSON object..
+
+NotesErrorObject
+{
+    "code": "504",
+    "description": "missing parameter"
+}
+
+NotesObject
+{
+    "title": "My first note",
+    "content": "My notes content",
+    "createdDate": "YYYYMMDD",
+    "updatedDate": "YYYYMMDD",
+    "author": "My Name",
+    "favourite": "true/false"
+}
+
+NotesObject
+[
+    {
+        "title": "My first note",
+        "content": "My notes content",
+        "createdDate": "YYYYMMDD",
+        "updatedDate": "YYYYMMDD",
+        "author": "My Name",
+        "favourite": "true/false"
+    },
+    {
+        "title": "My first note",
+        "content": "My notes content",
+        "createdDate": "YYYYMMDD",
+        "updatedDate": "YYYYMMDD",
+        "author": "My Name",
+        "favourite": "true/false"
+    }
+]
