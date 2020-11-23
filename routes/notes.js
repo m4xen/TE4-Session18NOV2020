@@ -47,10 +47,10 @@ router.get('/', function(req, res, next) {
 
 //POST a new Note
 router.post('/', function(req, res, next) {
-    //jag vill läsa in hela "filen" och ta reda p� hur m�nga poster som finns
+    //jag vill läsa in hela filen och ta reda på hur många poster som finns
     //fundera på JavaScript Object vs JSON som text, dvs vi har en Array med data
     //öka antalet poster med 1
-    //Det blir nya id
+    //Det blir det nya id
         fs.readFile(dataPath, (err,data) =>{
             if(err) {
 		console.log(err);
